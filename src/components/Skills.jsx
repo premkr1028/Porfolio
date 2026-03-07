@@ -55,7 +55,7 @@ export function Skills() {
             onMouseOver={handleMouseOver}
             onMouseLeave={handleMouseOut}
           >
-            <img src={card.imgSrc} alt={`img${card}`} />
+            <img src={`/src/assets/images/${card.imgSrc}`} alt={`img${card.id}`} />
           </div>
         ))}
       </div>
