@@ -42,5 +42,20 @@ export const imgFullData = [
     sor: "css.png",
     name: "CSS 3",
     det: "Ahh CSS it's an ocean maybe a person never able to say that he/she have full knowledge about CSS. Well yup i know CSS very well. and also learning new things in it "
+  },
+  {
+    sor: "mongodb.png",
+    name: "MongoDB",
+    det: "Working with NoSQL was a game changer for me. I’ve used MongoDB to handle data for my full-stack apps, especially when I need a flexible schema that can grow with my projects."
+  },
+  {
+    sor: "nodejs.png",
+    name: "Node JS",
+    det: "Node.js allowed me to take my Javascript skills to the server side. It's fast, efficient, and I love how I can use one single language to handle both the front-end and the back-end."
+  },
+  {
+    sor: "express.png",
+    name: "Express JS",
+    det: "I use Express to build the APIs for my web applications. It’s so minimalist and unopinionated, which makes setting up middleware and routing feel very straightforward and clean."
   }
 ]
