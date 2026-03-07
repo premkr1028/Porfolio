@@ -6,7 +6,7 @@ export function Skills() {
   const [cards, setCards] = useState([]);
   const [imgDet, setImgDet] = useState("");
   const [skiName, setSkiName] = useState("");
-
+  const [mobile, setMobile] =  useState("false")
   const handleMouseOver = (e) => {
     e.currentTarget.style.left = "15%";
     console.log(e.target.tagName);
@@ -20,6 +20,7 @@ export function Skills() {
   const showDets = () =>{
     if(window.innerHeight > window.innerWidth){
       // return
+      setMobile(true)
       document.getElementsByClassName("card").removeAttribute("onMouseLeave")
     }
   }
@@ -59,7 +60,7 @@ export function Skills() {
         ))}
       </div>
 
-      <div className="dets absolute bottom-0 right-[2vw] w-[40%] h-[20vh] overflow-hidden">
+      <div className="dets  absolute bottom-0 right-[2vw] w-[40%] h-[20vh] overflow-hidden">
         <h1 className="text-[12px] skillName">{skiName}</h1>
         <div className="skillDetail">
           <p className="text-[1.1vw]">{imgDet} </p>

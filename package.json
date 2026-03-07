@@ -21,7 +21,6 @@
     "vite": "^5.0.0"
   },
   "dependencies": {
-    "framer-motion": "^11.3.24",
     "react-router-dom": "^6.26.0"
   }
 }

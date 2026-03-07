@@ -1,12 +1,6 @@
 export function ProjectPreview(props) {
-  // let [weap, setWeap] = useState([]);
-  // let [point, setPoint] = useState([]);
-  // let [funcs, setFuncs] = useState([]);
-  // setWeap(props.weapons);
-  // setPoint(props.points);
-  console.log(props["weapons"]);
-  console.log(props["points"])
-  console.log(props["functions"])
+  console.log(props);
+
   return (
     <>
       <div className="preview_name mt-[10px]">

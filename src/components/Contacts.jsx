@@ -1,66 +1,77 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useState } from 'react';
 
 export function Contacts() {
-let [smBoxs, setSmBoxes] = useState([])
+  const [copied, setCopied] = useState(false);
 
- 
-  useEffect( () =>{
-    let smBoxs = []
-    for(let i = 0; i < 100; i++){
-      smBoxs.push(
-        <div className="smBox" key={i}></div>
-      )
-    }
-    setSmBoxes(smBoxs)
-  },[])
+  const socialLinks = [
+    { name: "Instagram", url: "https://www.instagram.com/prem.kr_balmiki1028/", color: "hover:text-pink-500" },
+    { name: "Twitter", url: "https://x.com/premkrbalmiki", color: "hover:text-sky-400" },
+    { name: "Github", url: "https://github.com/premkr1028/", color: "hover:text-white" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/prem-kumar-balmiki-688738323", color: "hover:text-blue-600" },
+  ];
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("premkumarbalmiki088@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <div className="contactPage w-full min-h-[60vh] py-[8px] relative overflow-hidden pb-[10px]">
-     <div className='ml-[2px] back w-[100%] overflow-hidden h-[100%] absolute flex wrap items-wrap gap-[0.5px]'>
-       {
-         smBoxs.map(box =>{
-           return box
-         })
-       }
-       </div>
-      <div className="flex flex-col items-center text-[2.2vw]">
-        <h1 className="text-center">
-          Want to get in{" "}
-          <span className="text-blue-300 text-[2.2vw]">touch</span>?
-        </h1>
-        <h2 className='text-center'>Go on! Don't be shy...</h2>
-      </div>
-      <div className="linksGifs flex justify-between px-[5px] mt-[20px]">
+    <section className="relative w-full min-h-[70vh] flex flex-col items-center justify-center bg-[#0a0a0a] text-zinc-100 overflow-hidden px-6 py-20">
       
-      <ul className="text-[2vw] sm:grid-cols-5 place-items-ceneter grid-cols-2 w-full">
-        <li className="sc">
-          <a>
-            <span data-text="instagram">Instagram</span>
-          </a>
-        </li>
-        <li className="sc">
-          <a>
-            <span data-text="twitter">Twitter</span>
-          </a>
-        </li>
-        <li className="sc">
-          <a>
-            <span data-text="email">Email</span>
-          </a>
-        </li>
-        <li className="sc">
-          <a>
-            <span data-text="github">Github</span>
-          </a>
-        </li>
-        <li className="sc">
-          <a>
-            <span data-text="linkedIn">LinkedIn</span>
-          </a>
-        </li>
+      {/* Subtle Background Radial Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
 
-      </ul>
+      {/* Header Section */}
+      <div className="relative z-10 text-center mb-24">
+        <h2 className="text-zinc-500 uppercase tracking-[0.3em] text-xs mb-4 animate-fade-in">
+          Available for projects
+        </h2>
+        <h1 className="text-5xl md:text-8xl font-medium tracking-tight">
+          Let's create <br /> 
+          <span className="text-zinc-500 italic">something</span> <span className="text-blue-400">great.</span>
+        </h1>
+      </div>
+
+      {/* Main Contact Content */}
+      <div className="relative z-10 w-full max-w-5xl">
+        <div className="flex flex-col md:flex-row items-center justify-between border-t border-zinc-800/50 pt-12 gap-12">
+          
+          {/* Email Interaction */}
+          <div className="flex flex-col items-center md:items-start group">
+            <p className="text-zinc-500 text-sm mb-2">Send an email</p>
+            <button 
+              onClick={copyEmail}
+              className="text-2xl md:text-4xl font-light hover:text-blue-300 transition-colors duration-300 relative"
+            >
+              premkumarbalmiki088@gmail.com
+              <span className={`absolute -right-20 top-1/2 -translate-y-1/2 text-xs bg-zinc-800 px-2 py-1 rounded transition-opacity ${copied ? 'opacity-100' : 'opacity-0'}`}>
+                {copied ? 'Copied!' : ''}
+              </span>
+            </button>
+          </div>
+
+          {/* Social Links Grid */}
+          <div className="grid grid-cols-2 gap-x-12 gap-y-6">
+            {socialLinks.map((link) => (
+              <a 
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`text-zinc-400 text-lg md:text-xl font-medium ${link.color} transition-all duration-300 transform hover:scale-110`}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* Footer-style Signature */}
+      <div className="mt-32 text-zinc-600 text-sm tracking-widest uppercase">
+        © 2026 Prem Kumar Balmiki
+      </div>
+    </section>
   );
 }
